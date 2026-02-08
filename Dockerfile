@@ -7,7 +7,7 @@ ARG SLURM_MD5=b80465f2dd9f763f26fd8f7906b52aa9
 # Base OS: Ubuntu LTS.  
 #   Add necessary packages.
 ################################
-FROM ${UBUNTU_VERSION} as base_os
+FROM ${UBUNTU_VERSION} AS base_os
 ARG SLURM_VERSION
 ARG SLURM_MD5
 
@@ -30,7 +30,7 @@ RUN apt-get update && \
 ################################
 # SLURM installation
 ################################
-FROM base_os as slurm_base
+FROM base_os AS slurm_base
 
 RUN useradd -ms /bin/sh slurm
 
@@ -48,7 +48,7 @@ RUN curl https://download.schedmd.com/slurm/slurm-${SLURM_VERSION}.tar.bz2 -o sl
 ################################
 # SLURM configuration
 ################################
-FROM slurm_base as slurm_deployment
+FROM slurm_base AS slurm_deployment
 
 WORKDIR /tmp
 RUN /usr/sbin/mungekey -c -f -b 8192 -v -k /etc/munge/munge.key && \
