@@ -11,8 +11,8 @@ from fastapi import Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
-from localvllm import LocalVLLM
-from localollama import LocalOllama
+#from localvllm import LocalVLLM
+#from localollama import LocalOllama
 from fastmcp import Client
 from sse_starlette.sse import EventSourceResponse
 from sse_starlette import JSONServerSentEvent
@@ -52,8 +52,8 @@ async def ask(request: Request, question: Ask) -> EventSourceResponse:
         yield JSONServerSentEvent(data={"event":'Beginning.', "chat_id":chat_id, "extra_data":question.lstrip()})
         library = pachinkoagentic.Library()\
                     .add(Client('http://localhost:9001/mcp'))
-        workflow = pachinkoagentic.Workflow(agentic_code_generator=LocalOllama('http://localhost:11434','qwen3:4b-thinking'), 
-                                                llm=LocalOllama('http://localhost:11434','qwen3:4b-thinking'), 
+        workflow = pachinkoagentic.Workflow(agentic_code_generator=None, #LocalOllama('http://localhost:11434','qwen3:4b-thinking'), 
+                                                llm=None, #llm=LocalOllama('http://localhost:11434','qwen3:4b-thinking'), 
                                                 library=library, 
                                                 workflow_id=chat_id)
         async for event in workflow.generate(question):
