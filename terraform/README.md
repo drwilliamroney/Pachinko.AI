@@ -2,15 +2,15 @@
 
 ```mermaid
 flowchart TB
-    UIServicePlan
+    UIServicePlan[[UIServicePlan]]
     UIApp
-    ConversationContainer[ai conversations]
-    StatesContainer[ai states]
-    QueueContainer[ai queue]
-    FaaSContainer[ai faas]
-    AIServicePlan
+    ConversationContainer[(ai conversations)]
+    StatesContainer[(ai states)]
+    QueueContainer[(ai queue)]
+    FaaSContainer[(ai faas)]
+    AIServicePlan[[AIServicePlan]]
     AIRunner
-    MCPServicePlan
+    MCPServicePlan[[MCPServicePlan]]
     MCPApp
     UIApp --o UIServicePlan
     UIApp --> QueueContainer
