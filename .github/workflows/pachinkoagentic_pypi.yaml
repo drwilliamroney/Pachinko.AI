@@ -16,6 +16,9 @@ jobs:
     permissions:
       # This permission is required for the OIDC token exchange
       id-token: write
+    defaults:
+      run:
+        working-directory: pachinkoagentic
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
