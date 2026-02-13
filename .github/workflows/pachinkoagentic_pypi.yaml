@@ -37,4 +37,4 @@ jobs:
         # Uses the trusted PyPA action for authentication and upload
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          packages_dir: dist/
+          packages_dir: /github/workspace/pachinkoagentic/dist
