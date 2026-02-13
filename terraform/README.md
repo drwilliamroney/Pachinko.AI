@@ -2,32 +2,24 @@
 
 ```mermaid
 flowchart TB
-    subgraph UI
-        UIServicePlan
-        UIApp
-    end
-    subgraph StorageAccount
-        ai-conversations
-        ai-states
-        ai-queue
-        ai-faas
-    end
-    subgraph AI
-        AIServicePlan
-        AIRunner
-    end
-    subgraph MCP
-        MCPServicePlan
-        MCPApp
-    end
+    UIServicePlan
+    UIApp
+    ConversationContainer[ai conversations]
+    StatesContainer[ai states]
+    QueueContainer[ai queue]
+    FaaSContainer[ai faas]
+    AIServicePlan
+    AIRunner
+    MCPServicePlan
+    MCPApp
     UIApp --o UIServicePlan
-    MCPApp --o MCPServicePlan
+    UIApp --> QueueContainer
     AIRunner --o AIServicePlan
-    AIRunner --o ai-faas
-    UIApp --> ai-queue
-    ai-queue --> AIRunner
-    UIApp <--> ai-conversations
-    AIRunner <--> ai-conversations
-    AIRunner <--> ai-states
+    AIRunner --o FaaSContainer
+    QueueContainer --> AIRunner
+    UIApp <--> ConversationContainer
+    AIRunner <--> ConversationContainer
+    AIRunner <--> StatesContainer
     AIRunner --> MCPApp
+    MCPApp --o MCPServicePlan
 ```
