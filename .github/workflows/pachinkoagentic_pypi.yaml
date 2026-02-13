@@ -12,7 +12,7 @@ jobs:
     # Specify the environment name you configured in PyPI (optional)
     environment:
       name: pypi
-      url: https://pypi.org/p/<your-pypi-project-name> # Replace with your project URL
+      url: https://pypi.org/p/pachinkoagentic # Replace with your project URL
     permissions:
       # This permission is required for the OIDC token exchange
       id-token: write
