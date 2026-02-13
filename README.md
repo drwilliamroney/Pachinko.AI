@@ -5,3 +5,4 @@ This solution focuses on using an LLM to generate code that utilizes MCP definit
 The system answers the consumer's trust-in-work by showing the code, showing a flowchart, and providing incremental updates as it proceeds.  This allows the consumer to treat the response in the same paradigm as a human aggregator of the response, being able to see where it went, how much information it retrieved, and the workflow used to compile the answer.  This is an analog to the "show your work" requirements in secondary-school math tests.
 
 This is the third-iteration of a deployment which began as a docker composition using SLURM to control the AIRunner execution.  In this version, the solution is deployed to Azure.
+
