@@ -10,8 +10,7 @@ flowchart TB
     FaaSContainer[(ai faas)]
     AIServicePlan[[AIServicePlan]]
     AIRunner
-    MCPServicePlan[[MCPServicePlan]]
-    MCPApp
+    MCP@{shape: docs, label: "MCP Servers"}
     UIApp --o UIServicePlan
     UIApp --> QueueContainer
     AIRunner --o AIServicePlan
@@ -20,6 +19,5 @@ flowchart TB
     UIApp <--> ConversationContainer
     AIRunner <--> ConversationContainer
     AIRunner <--> StatesContainer
-    AIRunner --> MCPApp
-    MCPApp --o MCPServicePlan
+    AIRunner --> MCP
 ```
